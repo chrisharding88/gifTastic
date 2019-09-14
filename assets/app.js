@@ -5,6 +5,8 @@ $(document).ready(function() {
     var musicArtist;
 
 
+
+
 function applyButtons(){
 
     $('#button-view').empty();
@@ -26,6 +28,21 @@ function applyButtons(){
 }
 
 
+function displayImages(){
+    var artists = $(this).attr('data-name');
+    var queryURL = "https://developers.giphy.com/dashboard/?create=true" + artists + "ZXi2qtax33y3QmASFlQ4LMMLYVESXBhr"; 
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+
+     
+        console.log(response);
+
+    });
+
+}
 
 
 
@@ -45,6 +62,9 @@ $('#addMusicArtist').click(function(event){
 
 });
 
+
+
+$(document).on('click', '.music', displayImages);
 
 
 applyButtons();
