@@ -1,4 +1,10 @@
 #musicArtist{
-    margin-top: 10%;
+    margin-top: 7%;
     margin-left: 75%;
+    display: block;
+}
+
+#musicImages{
+    display: block;
+    clear: both;
 }

@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // Global Variables
-    var artistsArr = [];
+    var artistsArr = ["Drake", "Michael Jackson", "Beyonce", "Nirvana", "The Rolling Stones", "Ozzy Osbourne"];
     var musicInput;
     var musicArtist;
 
@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 function applyButtons(){
 
-    $('#button-view').empty();
+    $('#button-view').html('');
 
     for (var i = 0; i < artistsArr.length; i++){
 
@@ -30,20 +30,43 @@ function applyButtons(){
 
 function displayImages(){
     var artists = $(this).attr('data-name');
-    var queryURL = "https://developers.giphy.com/dashboard/?create=true" + artists + "ZXi2qtax33y3QmASFlQ4LMMLYVESXBhr"; 
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + artists + "&api_key=ZXi2qtax33y3QmASFlQ4LMMLYVESXBhr"; 
+
+    $('#musicImages').html('');
+
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response){
 
-     
-        console.log(response);
+       for (let i = 0; i < 10; i++) {
 
+        var divMusic = $('<div>');
+
+            var rated = $('<p>')
+            rated.text('Rating: ' + response.data[i].rating);
+            divMusic.append(rated);
+            
+            var showImages = $('<img>')
+            showImages.attr("src", response.data[i].images.original_still.url);
+            showImages.attr("data-still", response.data[i].images.original_still.url);
+            showImages.attr("data-animate", response.data[i].images.original.url);
+            showImages.attr("data-state", "still");
+            showImages.addClass("gifMusic");
+            divMusic.append(showImages);
+
+          $('#musicImages').append(divMusic);
+     
+       }
+
+       console.log(response);
+       $('.gifMusic').css({'margin': '2px'});
     });
 
-}
 
+
+}
 
 
 $('#addMusicArtist').click(function(event){
