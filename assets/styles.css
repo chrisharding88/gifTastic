@@ -4,7 +4,8 @@
     display: block;
 }
 
-#musicImages{
-    display: block;
-    clear: both;
+
+
+img.gifMusic{
+    float:left;
 }

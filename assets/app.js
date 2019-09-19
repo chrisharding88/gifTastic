@@ -25,7 +25,7 @@ function applyButtons(){
     $(".music").css({'margin': '5px'});
     // The buttons will change colors when the arrow is on the button
     $(".music").hover(function(){$(this).css({'background-color': 'white', 'color':'#066ded'})}, 
-    function(){$(this).css({'background-color': '#066ded', 'color':'white'})});
+    function(){$(this).css({'background-color': '#066ded', 'color':'white'})})
 
 
 
@@ -76,8 +76,10 @@ function displayImages(){
             divMusic.append(showImages);
 
           $('#musicImages').append(divMusic);
-          $('#musicImages').addClass("col-lg-6");
-           
+          $('.divMusic').css({'float': 'left', 'display': 'inline-block'});
+          $('.divMusic').addClass("col-sm-12 col-md-6");
+          
+
 
        } 
        
