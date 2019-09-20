@@ -62,13 +62,13 @@ function displayImages(){
             // Sets the variable for the images
             var showImages = $('<img>')
             // Sets attribute to grab the image source, or src
-            showImages.attr("src", response.data[i].images.original_still.url);
+            showImages.attr("src", response.data[i].images.fixed_height_still.url);
              // Sets attribute for the image source and set it to data-still
             //  So image will be still
-            showImages.attr("data-still", response.data[i].images.original_still.url);
+            showImages.attr("data-still", response.data[i].images.fixed_height_still.url);
              // Sets attribute for the image source and set it to data-animate
             //  So image will animate
-            showImages.attr("data-animate", response.data[i].images.original.url);
+            showImages.attr("data-animate", response.data[i].images.fixed_height.url);
             // Sets the image to still
             showImages.attr("data-state", "still");
             // Adds class to the img element
@@ -76,8 +76,8 @@ function displayImages(){
             divMusic.append(showImages);
 
           $('#musicImages').append(divMusic);
-          $('.divMusic').css({'float': 'left', 'display': 'inline-block'});
-          $('.divMusic').addClass("col-sm-12 col-md-6");
+          $('.divMusic').css({'float': 'left', 'display': 'inline-block', 'padding' : '10px'});
+          $('#musicImages').addClass("col-md-12 col-md-6");
           
 
 
